@@ -58,11 +58,8 @@ function renderStudent(student) {
 
 
 loadStudentBtn.addEventListener("click", () => {
-  
-    renderCourses(student)
-    .then(result => {
-        studentContainer.innerHTML = result;
-    })
+    p.textContent = "Student has loaded succesfully."
+    renderStudent(student)
 })
 
 const courses = [
@@ -99,7 +96,7 @@ function renderCourses(courses) {
     coursesContainer.innerHTML = "";
 
     const ul = document.createElement("ul")
-    courses.map(course => {
+    courses.forEach(course => {
         const li = document.createElement("li")
         li.innerHTML = `Course Code: ${course.code}, Course Title: ${course.title}`;
         ul.append(li);
@@ -110,7 +107,6 @@ function renderCourses(courses) {
    return  coursesContainer
 }
 
-// const cor = renderCourses(courses)
 
 
 loadcoursesBtn.addEventListener("click", () => {
@@ -118,7 +114,9 @@ loadcoursesBtn.addEventListener("click", () => {
     coursesContainer.textContent = ""
 
     getCoursesData().then(result => {
-       renderCourses(result)
+        console.log(result)
+        p.textContent = "Courses has loaded succesfully."
+        renderCourses(result)
     })
     .catch(error => {
         coursesContainer.textContent = error
