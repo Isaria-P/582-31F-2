@@ -15,7 +15,6 @@ fetch("https://jsonplaceholder.typicode.com/users/1")
         console.log(typeof user)
         loadUser.addEventListener("click", () => {
             statusMessage.textContent =  JSON.stringify(user, null, 2)
-            
         })
         return users
     })
