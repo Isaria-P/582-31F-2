@@ -24,8 +24,11 @@ loadPostbtn.addEventListener("click", () => {
             <p>Email: ${post.body}</p>
     
         `;
-        console.log(post)
+        // console.log(post)
         statusP.textContent = "User loaded successfully"
+    })
+    .catch((error) => {
+        statusP.textContent = `Failed to load Post: ${error.message}`;
     })
 
 })
