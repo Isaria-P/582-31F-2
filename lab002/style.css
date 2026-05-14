@@ -1,6 +1,54 @@
+main {
+    display: block;        /* Ensures it behaves as a block element */
+    max-width: 1200px;     /* Limits width for better readability */
+    margin: 50px auto; 
+    /* width: 30%; */
+    padding: 30px;         /* Adds internal spacing */
+    background-color: #b8bdca;
+    border: 1px solid #232323;
+    /* display: flex; */
+   /*  justify-content: center; Horizontal */
+  /*   align-items: center;     Vertical */
+}
+
+button {
+    background-color: #232323;
+    border: none;
+    color: #dcd8d8;
+    padding: 10px 35px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    cursor: pointer;
+    font-family: 'Courier New', Courier, monospace;
+
+}
+
+p  {
+    color: #232323;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 15px;
+}
+
+h1 {
+    font-family: 'Times New Roman', Times, serif;
+    
+}
+
+h2 {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
+}
 .container {
   display: flex;
   justify-content: center; /* Horizontal */
   align-items: center;     /* Vertical */
-  height: 100vh;           /* Full viewport height */
+  height: 70vh;       /*     Full viewport height */
+}
+
+.col {
+    border: #232323 1px solid;
+    padding: 10px 35px;
+    margin: 5px;
 }
