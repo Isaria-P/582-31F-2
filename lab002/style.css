@@ -1,6 +1,6 @@
 main {
     display: block;        /* Ensures it behaves as a block element */
-    max-width: 1200px;   /*   Limits width for better readability */
+/*    max-width: 1200px;      Limits width for better readability */
     /* margin: 50px auto;  */
     /* width: 30%; */
     padding: 50px;     /*     Adds internal spacing */
@@ -10,7 +10,7 @@ main {
     align-items: center;  /*           Vertical */
 }
 
-button {
+#load-user-btn, #clear-button{
     background-color: #232323;
     border: none;
     color: #dcd8d8;
@@ -21,13 +21,25 @@ button {
     font-size: 20px;
     cursor: pointer;
     font-family: 'Courier New', Courier, monospace;
+}
 
+button {
+    background-color: #232323;
+    border: none;
+    color: #dcd8d8;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 p  {
     color: #232323;
     font-family: 'Courier New', Courier, monospace;
-    font-size: 15px;
+    font-size: 10px;
 }
 
 h1 {
@@ -39,16 +51,18 @@ h2 {
     font-family: 'Courier New', Courier, monospace;
     font-size: 18px;
 }
-.container {
+
+
+#cardContainer {
   display: flex;
   justify-content: center; /* Horizontal */
   align-items: center;     /* Vertical */
-  height: 70vh;       /*     Full viewport height */
-  border: 2px solid #232323 ;
+  height: 50vh;       /*     Full viewport height */
+  /* border: 2px solid #232323 ; */
 }
 
 .cards {
     border: #232323 1px solid;
-    padding: 10px 25px;
+    padding: 10px 10px;
     margin: 3px;
 }

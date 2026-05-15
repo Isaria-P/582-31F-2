@@ -18,85 +18,77 @@ loadUserBtn.addEventListener("click", () => {
         fetch("https://jsonplaceholder.typicode.com/posts")
             .then((response) => response.json())
     ])    
-   
-        .then(([users, posts]) => {
 
+        .then(([users, posts]) => {
             // console.log(users)
             const firstFiveUsers = users.slice(0,5)
-            console.log(firstFiveUsers)
 
-            const user = users[0]
-            // console.log(user)
-
-            //filter Post to user
-            const userPost = posts.filter((post) => {
-                return post.userId === user.id
-            })
-
-            const firstThreePost = userPost.slice(0,3)
-            console.log(firstThreePost)
-
-            const postHTML = firstThreePost.map((post) => {
-                return `
-                    <div class="post">
-
-                    <h3>${post.title}</h3>
-
-                    <p>${post.body}</p>
-
+            // //filter Post to user
+            // const userPost = posts.filter((post) => {
+            //     return post.userId === user.id
+            // })
+            const cardsHTML = firstFiveUsers.map((user) => {
+            return `
+                <div class="cards">
+                    <h5>${user.name}</h5>
+                    <p>Email: ${user.email}</p>
+                    <p>Phone: ${user.phone}</p>
+                    <p>City: ${user.address.city}</p>
+                    <p>Company: ${user.company.name}</p>
+                    <br>
+                    <button class="load-post-btn" data-userid="${user.id}">
+                        Load Posts
+                    </button>
+                    <div class="posts" id="posts-${user.id}"></div>
                 </div>
-                `;
-            }).join("")
-
-            cards.innerHTML = `
-                <h2>Name: ${user.name}</h2>
-                <p>Email: ${user.email}</p>
-                <p>Email: ${user.phone}</p>
-                <p>Email: ${user.address.city}</p>
-                <p>Email: ${user.company.name}</p>
-
-                ${postHTML}
-
             `;
+        });
 
+        cards.innerHTML = cardsHTML
+        console.log(cardsHTML)
         // render users
-
         // const userHTML = firstFiveUsers.map((users) => {
         //     return `
-
         //     `
-        // })
-        // console.log(userPost)
-
-
-        // Loading message
-        // cards.forEach(card => {
-
-        //         // for Post
-        //         // card.innerHTML = `
-        //         //     <p>loading Cards....</p>
-        //         // `
-        //         // return card
-        // })
-        // return cards
-        
-        // })
-        // .then((post) => {
-        //     console.log(post)
-        //     const firstThreePost = post.slice(0,4)
-        //     console.log(firstThreePost)
-        // })
     })
     .catch((error) => {
         cards.innerHTML = `<p>Failed to load</p>`
     });
-    
-    
-         
-
 })
 
 
 clearBtn.addEventListener("click", () => {
     statusArea.textContent = ""
 })
+
+
+
+
+
+// const firstThreePost = userPost.slice(0,3)
+            // console.log(firstThreePost)
+
+            // const postHTML = firstThreePost.map((post) => {
+            //     return `
+            //         <div class="post">
+
+            //         <h3>${post.title}</h3>
+
+            //         <p>${post.body}</p>
+
+            //     </div>
+            //     `;
+            // }).join("")
+
+            // cards
+
+            // cards.innerHTML = `
+            //     <h2>Name: ${user.name}</h2>
+            //     <p>Email: ${user.email}</p>
+            //     <p>Email: ${user.phone}</p>
+            //     <p>Email: ${user.address.city}</p>
+            //     <p>Email: ${user.company.name}</p>
+            // `;
+
+                // ${postHTML}
+
