@@ -1,14 +1,13 @@
 main {
     display: block;        /* Ensures it behaves as a block element */
-    max-width: 1200px;     /* Limits width for better readability */
-    margin: 50px auto; 
+    max-width: 1200px;   /*   Limits width for better readability */
+    /* margin: 50px auto;  */
     /* width: 30%; */
-    padding: 30px;         /* Adds internal spacing */
+    padding: 50px;     /*     Adds internal spacing */
     background-color: #b8bdca;
     border: 1px solid #232323;
-    /* display: flex; */
-   /*  justify-content: center; Horizontal */
-  /*   align-items: center;     Vertical */
+    justify-content: center; /*         Horizontal */
+    align-items: center;  /*           Vertical */
 }
 
 button {
@@ -47,8 +46,8 @@ h2 {
   height: 70vh;       /*     Full viewport height */
 }
 
-.col {
+.cards {
     border: #232323 1px solid;
-    padding: 10px 35px;
-    margin: 5px;
+    padding: 10px 25px;
+    margin: 3px;
 }
