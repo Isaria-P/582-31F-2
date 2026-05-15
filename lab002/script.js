@@ -10,31 +10,50 @@ console.log(cards, statusArea)
 // Posts https://jsonplaceholder.typicode.com/posts
 
 loadUserBtn.addEventListener("click", () => {
+    Promise.all([
+        fetch("https://jsonplaceholder.typicode.com/users")
+        .then((response) => response.json()),
 
-    fetch("https://jsonplaceholder.typicode.com/users")
-        .then((response) => {
-            // console.log(response)
-            if (!response.ok) {
-                throw new Error(`HTTP error: ${response.status}`);
-            }
-            const parseUsers = response.json()
-            // console.log(`ParsedUser: ${parseUsers}`)
-            return parseUsers
-        })
-        .then((users) => {
-            const firstFiveUders = users.slice(0,5)
-            // console.log(firstFiveUders)
+        fetch("https://jsonplaceholder.typicode.com/posts")
+        .then((response) => response.json())
 
-            // Loading message
-            cards.forEach(card => {
-                card.innerHTML = `
-                    <p>loading Cards....</p>
-                `
-                return card
-            })
-            .then((user))
-            
+    ])
+
+    .then(([users, posts]) => {
+
+        const firstFiveUders = users.slice(0,5)
+        // console.log(firstFiveUders)
+
+        const firstUser = users[0,5]
+        console.log(firstUser)
+
+        //filter Post to user
+        const userPost = posts.filter((post) => {
+            return post.userId === users.id
         })
+        console.log(userPost)
+
+
+        // Loading message
+        // cards.forEach(card => {
+
+        //         // for Post
+        //         // card.innerHTML = `
+        //         //     <p>loading Cards....</p>
+        //         // `
+        //         // return card
+        // })
+        // return cards
+        
+        // })
+        // .then((post) => {
+        //     console.log(post)
+        //     const firstThreePost = post.slice(0,4)
+        //     console.log(firstThreePost)
+        // })
+    })
+    
+         
 
 })
 
