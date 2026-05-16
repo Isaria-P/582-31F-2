@@ -85,6 +85,19 @@ function loadPostsForUser(user, postsContainer) {
     setSatus(`Posts loaded for ${user.name}`, "success");
 }
 
+/* Render Posts. */
+function renderPosts(posts, container) {
+    const postHTML = posts.map((post) => {
+        return `
+            <div class="post">
+                <p>${post.title}</p>
+                <p>${post.body}</p>
+            </div>
+        `;
+    }).join("");
+    container.innerHTML = postHTML;
+}
+
 // loadUserBtn.addEventListener("click", () => {
     // status.innerHTML = `<p>loading Cards....</p>`
     
@@ -130,15 +143,15 @@ function loadPosts(userId) {
     //const userPost = allPosts.slice(0, 3);
         // .filter((post) => post.userId === userId)
         
-    const postHTML = userPost.map((post) => {
-        return `
-        <div class="post">
-            <p>${post.title}</p>
-            <p>${post.body}</p>
-            </div>
-        `;
+    // const postHTML = userPost.map((post) => {
+    //     return `
+    //     <div class="post">
+    //         <p>${post.title}</p>
+    //         <p>${post.body}</p>
+    //         </div>
+    //     `;
 
-    }).join("")
+    // }).join("")
 
     document.getElementById(`posts-${userId}`).innerHTML = postHTML;
 }
