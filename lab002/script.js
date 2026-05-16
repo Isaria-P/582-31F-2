@@ -1,5 +1,4 @@
 const loadUserBtn = document.getElementById("load-user-btn")
-const statusArea = document.getElementById("status")
 const clearBtn = document.getElementById("clear-button")
 const cards = document.getElementById("cardContainer")
 const status = document.getElementById("status")
@@ -9,9 +8,10 @@ const status = document.getElementById("status")
 
 let allPosts = [];
 
-// console.log(cards)
-// Users https://jsonplaceholder.typicode.com/users
-// Posts https://jsonplaceholder.typicode.com/posts
+function setSatus(message, type) {
+    status.textContent = message;
+    status.className = type;
+}
 
 loadUserBtn.addEventListener("click", () => {
     status.innerHTML = `<p>loading Cards....</p>`
@@ -56,9 +56,9 @@ loadUserBtn.addEventListener("click", () => {
 
 function loadPosts(userId) {
     
-    const userPost = allPosts
+    const userPost = allPosts.slice(0, 3);
         // .filter((post) => post.userId === userId)
-        .slice(0, 3);
+        
         
     const postHTML = userPost.map((post) => {
         return `
@@ -86,7 +86,7 @@ cards.addEventListener("click", (e) => {
 
 
 clearBtn.addEventListener("click", () => {
-    statusArea.textContent = ""
+    status.textContent = ""
 })
 
 
