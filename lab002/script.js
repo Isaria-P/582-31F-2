@@ -1,15 +1,20 @@
 const loadUserBtn = document.getElementById("load-user-btn")
 const statusArea = document.getElementById("status")
-const clearBtn = document.getElementById("clear-button");
+const clearBtn = document.getElementById("clear-button")
 const cards = document.getElementById("cardContainer")
-// const cards = document.getElementById("cards")
+const status = document.getElementById("status")
 
-console.log(cards)
+// const loadPostBtn = document.querySelectorAll(".load-Post-btn")
+// console.log(loadPostBtn)
+
+let allPosts = [];
+
+// console.log(cards)
 // Users https://jsonplaceholder.typicode.com/users
 // Posts https://jsonplaceholder.typicode.com/posts
 
 loadUserBtn.addEventListener("click", () => {
-    cards.innerHTML = `<p>loading Cards....</p>`
+    status.innerHTML = `<p>loading Cards....</p>`
     
     Promise.all([
         fetch("https://jsonplaceholder.typicode.com/users")
@@ -18,15 +23,14 @@ loadUserBtn.addEventListener("click", () => {
         fetch("https://jsonplaceholder.typicode.com/posts")
             .then((response) => response.json())
     ])    
+ 
 
         .then(([users, posts]) => {
-            // console.log(users)
+            allPosts = posts;
+
             const firstFiveUsers = users.slice(0,5)
 
-            // //filter Post to user
-            // const userPost = posts.filter((post) => {
-            //     return post.userId === user.id
-            // })
+            // add settimeout
             const cardsHTML = firstFiveUsers.map((user) => {
             return `
                 <div class="cards">
@@ -42,25 +46,52 @@ loadUserBtn.addEventListener("click", () => {
                     <div class="posts" id="posts-${user.id}"></div>
                 </div>
             `;
+           
         });
 
-        cards.innerHTML = cardsHTML
-        console.log(cardsHTML)
-        // render users
-        // const userHTML = firstFiveUsers.map((users) => {
-        //     return `
-        //     `
+        cards.innerHTML = cardsHTML.join("");        // console.log(cardsHTML)
     })
     .catch((error) => {
         cards.innerHTML = `<p>Failed to load</p>`
     });
 })
 
+function loadPosts(userId) {
+    
+    const userPost = allPosts
+        .filter((post) => post.userId === userId)
+        .slice(0, 3);
+        
+    const postHTML = userPost.map((post) => {
+        return `
+        <div class="post">
+            <p>${post.title}</p>
+            <p>${post.body}</p>
+            </div>
+        `;
+    }).join("")
+
+    document.getElementById(`posts-${userId}`).innerHTML = postHTML;
+}
+
+// button click 
+cards.addEventListener("click", (e) => {
+    if (e.target.classList.contains("load-post-btn")) {
+        const userId = Number(e.target.dataset.userid);
+        loadPosts(userId)
+    }
+});
+
+
+
+
 
 clearBtn.addEventListener("click", () => {
     statusArea.textContent = ""
 })
 
+
+// function 
 
 
 
