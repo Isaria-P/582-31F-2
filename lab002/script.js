@@ -74,6 +74,16 @@ function renderUserCard(user) {
     return card;
 }
 
+/* Load Post. */
+function loadPostsForUser(user, postsContainer) {
+    setSatus(`Loading Post for ${user.name}....`, "loading");
+
+    /* First 3 post only */
+    const firstThreePost = allPosts.slice(0, 3);
+    renderUserCard(firstThreePost, postsContainer);
+
+    setSatus(`Posts loaded for ${user.name}`, "success");
+}
 
 // loadUserBtn.addEventListener("click", () => {
     // status.innerHTML = `<p>loading Cards....</p>`
@@ -117,9 +127,8 @@ function renderUserCard(user) {
 
 function loadPosts(userId) {
     
-    const userPost = allPosts.slice(0, 3);
+    //const userPost = allPosts.slice(0, 3);
         // .filter((post) => post.userId === userId)
-        
         
     const postHTML = userPost.map((post) => {
         return `
