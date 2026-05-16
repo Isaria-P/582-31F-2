@@ -46,10 +46,36 @@ function loadUsers() {
         setSatus("Failed to Load Users", "error");
         console.log(error)
     })
-
 }
 
-loadUserBtn.addEventListener("click", () => {
+function renderUserCard(user) {
+    const card = document.createElement("div");
+    card.classList.add("cards");
+
+    card.innerHTML = `
+        <h5>${user.name}</h5>
+        <p>Email: ${user.email}</p>
+        <p>Phone: ${user.phone}</p>
+        <p>City: ${user.address.city}</p>
+        <p>Company: ${user.company.name}</p>
+        <br>
+        <button class="load-post-btn" data-userid="${user.id}">
+            Load Posts
+        </button>
+        <div class="posts" id="posts-${user.id}"></div>          
+    `;
+
+    const loadPostBtn = card.querySelector(".load-post-btn");
+    const postsContainer = card.querySelector(".posts");
+    
+    loadUserBtn.addEventListener("click", () => { 
+        loadPostForUser(user, postsContainer);
+    });
+    return card;
+}
+
+
+// loadUserBtn.addEventListener("click", () => {
     // status.innerHTML = `<p>loading Cards....</p>`
     
       
@@ -67,27 +93,27 @@ loadUserBtn.addEventListener("click", () => {
         //         cards.appendChild(userCard);
         //     });
 
-            return `
-                <div class="cards">
-                    <h5>${user.name}</h5>
-                    <p>Email: ${user.email}</p>
-                    <p>Phone: ${user.phone}</p>
-                    <p>City: ${user.address.city}</p>
-                    <p>Company: ${user.company.name}</p>
-                    <br>
-                    <button class="load-post-btn" data-userid="${user.id}">
-                        Load Posts
-                    </button>
-                    <div class="posts" id="posts-${user.id}"></div>
-                </div>
-            `;
-        });
-        cards.innerHTML = cardsHTML.join("");        // console.log(cardsHTML)
-    })
-    .catch((error) => {
-        cards.innerHTML = `<p>Failed to load</p>`
-    });
-})
+            // return `
+            //     <div class="cards">
+            // //         <h5>${user.name}</h5>
+            // //         <p>Email: ${user.email}</p>
+            // //         <p>Phone: ${user.phone}</p>
+            // //         <p>City: ${user.address.city}</p>
+            // //         <p>Company: ${user.company.name}</p>
+            // //         <br>
+            // //         <button class="load-post-btn" data-userid="${user.id}">
+            // //             Load Posts
+            // //         </button>
+            // //         <div class="posts" id="posts-${user.id}"></div>
+            // //     </div>
+            // // `;
+        // });
+        // cards.innerHTML = cardsHTML.join("");        // console.log(cardsHTML)
+    // })
+    // .catch((error) => {
+    //     cards.innerHTML = `<p>Failed to load</p>`
+    // });
+// })
 
 function loadPosts(userId) {
     
