@@ -13,6 +13,11 @@ function setSatus(message, type) {
     status.className = type;
 }
 
+function clearDashBoard() {
+    cards.innerHTML = "";
+    setSatus("")
+}
+
 loadUserBtn.addEventListener("click", () => {
     status.innerHTML = `<p>loading Cards....</p>`
     
@@ -88,6 +93,7 @@ cards.addEventListener("click", (e) => {
 clearBtn.addEventListener("click", () => {
     status.textContent = ""
 })
+
 
 
 // function 
