@@ -18,25 +18,55 @@ function clearDashBoard() {
     setSatus("")
 }
 
-loadUserBtn.addEventListener("click", () => {
-    status.innerHTML = `<p>loading Cards....</p>`
-    
+function loadUsers() {
+    setSatus("Loading users...", "loading")
+
     Promise.all([
         fetch("https://jsonplaceholder.typicode.com/users")
         .then((response) => response.json()),
 
         fetch("https://jsonplaceholder.typicode.com/posts")
             .then((response) => response.json())
-    ])    
+    ])
+    .then(([users, posts]) => {
+            
+        allPosts = posts;
+        cards.innerHTML = "";
+        const firstFiveUsers = users.slice(0,5)
+
+        // const cardsHTML =
+        firstFiveUsers.map((user) => {
+            const userCard = renderUserCard(user);
+            cards.appendChild(userCard);
+        }); 
+
+        setSatus("User Loaded Successfully", "success");
+    }) 
+    .catch((error) => {
+        setSatus("Failed to Load Users", "error");
+        console.log(error)
+    })
+
+}
+
+loadUserBtn.addEventListener("click", () => {
+    // status.innerHTML = `<p>loading Cards....</p>`
+    
+      
  
 
-        .then(([users, posts]) => {
-            allPosts = posts;
+        // .then(([users, posts]) => {
+            
+        //     allPosts = posts;
+        //     cards.innerHTML = "";
+        //     const firstFiveUsers = users.slice(0,5)
 
-            const firstFiveUsers = users.slice(0,5)
+        //     // const cardsHTML =
+        //     firstFiveUsers.map((user) => {
+        //         const userCard = renderUserCard(user);
+        //         cards.appendChild(userCard);
+        //     });
 
-            // add settimeout
-            const cardsHTML = firstFiveUsers.map((user) => {
             return `
                 <div class="cards">
                     <h5>${user.name}</h5>
