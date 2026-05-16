@@ -96,6 +96,7 @@ function renderPosts(posts, container) {
         `;
     }).join("");
     container.innerHTML = postHTML;
+    
 }
 
 // loadUserBtn.addEventListener("click", () => {
