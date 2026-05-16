@@ -46,9 +46,7 @@ loadUserBtn.addEventListener("click", () => {
                     <div class="posts" id="posts-${user.id}"></div>
                 </div>
             `;
-           
         });
-
         cards.innerHTML = cardsHTML.join("");        // console.log(cardsHTML)
     })
     .catch((error) => {
@@ -59,7 +57,7 @@ loadUserBtn.addEventListener("click", () => {
 function loadPosts(userId) {
     
     const userPost = allPosts
-        .filter((post) => post.userId === userId)
+        // .filter((post) => post.userId === userId)
         .slice(0, 3);
         
     const postHTML = userPost.map((post) => {
@@ -69,6 +67,7 @@ function loadPosts(userId) {
             <p>${post.body}</p>
             </div>
         `;
+
     }).join("")
 
     document.getElementById(`posts-${userId}`).innerHTML = postHTML;
