@@ -96,8 +96,12 @@ function renderPosts(posts, container) {
         `;
     }).join("");
     container.innerHTML = postHTML;
-    
+
 }
+
+// Button Events
+loadUserBtn.addEventListener("click", loadUsers);
+clearBtn.addEventListener("click", clearDashBoard)
 
 // loadUserBtn.addEventListener("click", () => {
     // status.innerHTML = `<p>loading Cards....</p>`
@@ -139,39 +143,39 @@ function renderPosts(posts, container) {
     // });
 // })
 
-function loadPosts(userId) {
+// function loadPosts(userId) {
     
-    //const userPost = allPosts.slice(0, 3);
-        // .filter((post) => post.userId === userId)
+//     //const userPost = allPosts.slice(0, 3);
+//         // .filter((post) => post.userId === userId)
         
-    // const postHTML = userPost.map((post) => {
-    //     return `
-    //     <div class="post">
-    //         <p>${post.title}</p>
-    //         <p>${post.body}</p>
-    //         </div>
-    //     `;
+//     // const postHTML = userPost.map((post) => {
+//     //     return `
+//     //     <div class="post">
+//     //         <p>${post.title}</p>
+//     //         <p>${post.body}</p>
+//     //         </div>
+//     //     `;
 
-    // }).join("")
+//     // }).join("")
 
-    document.getElementById(`posts-${userId}`).innerHTML = postHTML;
-}
+//     document.getElementById(`posts-${userId}`).innerHTML = postHTML;
+// }
 
-// button click 
-cards.addEventListener("click", (e) => {
-    if (e.target.classList.contains("load-post-btn")) {
-        const userId = Number(e.target.dataset.userid);
-        loadPosts(userId)
-    }
-});
-
-
+// // button click 
+// cards.addEventListener("click", (e) => {
+//     if (e.target.classList.contains("load-post-btn")) {
+//         const userId = Number(e.target.dataset.userid);
+//         loadPosts(userId)
+//     }
+// });
 
 
 
-clearBtn.addEventListener("click", () => {
-    status.textContent = ""
-})
+
+
+// clearBtn.addEventListener("click", () => {
+//     status.textContent = ""
+// })
 
 
 
