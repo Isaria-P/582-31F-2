@@ -1,3 +1,7 @@
+/**
+ * Repository Link
+ * https://github.com/Isaria-P/582-31F-2/tree/main/lab001
+ */
 
 let student = { 
     id: 3928,
