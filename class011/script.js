@@ -1,8 +1,8 @@
 
 // Parent Constructor
-// function Animal(name) {
-//     this.name = name;
-// }
+function Animal(name) {
+    this.name = name;
+}
 
 class AnimalClass {
     constructor(name) {
@@ -12,15 +12,22 @@ class AnimalClass {
         return `This animal is named ${this.name}`;
     }
 }
-// Animal.prototype.describe = function () {
-//     return `This animal is named ${this.name}`;
-// }
+Animal.prototype.describe = function () {
+    return `This animal is named ${this.name}`;
+}
+
+// Challenge 1 - Override an inherited method
+Dog.prototype.describe = function () {
+  return `${this.name} is a ${this.breed}`;
+};
+
 
 // Child Constructor: Dog 
-// function Dog(name, breed) {
-//     Animal.call(this, name) ;
-//     this.breed = breed;
-// }
+function Dog(name, breed) {
+    Animal.call(this, name) ;
+    this.breed = breed;
+}
+
 class DogClass extends AnimalClass {
     constructor(name, breed) {
         super(name);
@@ -33,18 +40,26 @@ class DogClass extends AnimalClass {
 }
 
 // connect the prototype
-// Dog.prototype = Object.create(Animal.prototype);
-// Dog.prototype.constructor = Dog;
+Dog.prototype = Object.create(AnimalClass.prototype);
+Dog.prototype.constructor = Dog;
 // add child-specific method
-DogClass.prototype.bark = function () {
+Dog.prototype.bark = function () {
     return `${this.name} barks loudly`;
 };
 
+class Bird extends AnimalClass {
+    constructor(name, Taxonomy) {
+        super(name);
+        this.Taxonomy = Taxonomy;
+    }
+}
+
 // test object
-const dog1 = new DogClass("Buddy", "Golden Retriever");
+const dog1 = new Dog("Buddy", "Golden Retriever");
+const bird1 = new Bird("Didi", "song bird")
+console.log(bird1)
 
-
-// console.log(dog1.bark())
+console.log(dog1.bark())
 // console.log(dog1.describe())
 // (name, color)
 class CatClass extends AnimalClass {
@@ -135,7 +150,6 @@ class CarClass extends VehicleClass{
 //     return `Model: ${this.model}`;
 // }
 
-
 //Child Vehicle
 class ElectricCar extends CarClass {
     constructor(brand, model, batteryLevel)  {
@@ -143,6 +157,16 @@ class ElectricCar extends CarClass {
         this.batteryLevel = batteryLevel;
     }
 }
+
+class Truck extends CarClass {
+    constructor(brand, model, ram) {
+        super(brand, model);
+        this.ram = ram;
+    }
+}
+
+const elec1 = new CarClass("Jeep", "M69", "300k")
+console.log(elec1)
 // function ElectricCar(brand, model, batteryLevel) {
 //     CarClass.call(this, brand, model);
 //     this.batteryLevel = batteryLevel;
@@ -230,6 +254,17 @@ Behaviors defined in a parent class that a child class automatically receives. C
 
 How does class ... extends ... relate to prototypes?
 builds and links objects together through the prototype chain under the hood
+*/
+
+/*
+what is similar?
+both allows objects to inherit properties by child and methods from parent.
+what is easier to read?
+class inheritance has a more simple syntaxs
+how both still rely on prototypes
+Constructor-function inheritance requires manually linking prototypes 
+and class inheritance  rely on JavaScript's prototype system to create inheritance chains.
+
 */
 
 
