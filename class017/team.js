@@ -35,7 +35,13 @@ export class Team {
     }
 }
 
-const Vincy = new Team(909, "St.Vincent", "Group V", 2, "Mexico", 2);
-console.log(Vincy.group)
-Vincy.points = 6;
-console.log(Vincy)
+// const Vincy = new Team(909, "St.Vincent", "Group V", 2, "Mexico", 2);
+// console.log(Vincy.group)
+// Vincy.points = 6;
+// console.log(Vincy)
+
+// const response = await fetch("./teams.json");
+//     if (!response.ok) {
+//         throw new Error(`HTTP Error: ${response.status}`);
+//     }
+//     console.log(response.json())
