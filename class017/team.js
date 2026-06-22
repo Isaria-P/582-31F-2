@@ -16,7 +16,7 @@ export class Team {
         if (value < 0) {
             throw new Error("Points can not be of a negative Value.")
         }
-        this._points
+        this._points = value;
     }
 
     get points() {
