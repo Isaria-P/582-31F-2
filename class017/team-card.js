@@ -68,7 +68,7 @@ export class TeamCard extends HTMLElement {
                 <button class="details">View Details</button>
             </div>
         `;
-        console.log(shadow)
+        // console.log(shadow)
     }
 }
 
