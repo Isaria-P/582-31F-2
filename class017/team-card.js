@@ -45,7 +45,12 @@ export class TeamCard extends HTMLElement {
         return this.getAttribute("goal-difference");
     }
 
+    get leader() {
+        return this.getAttribute("leader");
+    }
+
     render() {
+        const leader = this.leader === "true" ? "leader" : "";
         
         this.shadowRoot.innerHTML = `
             <style>
@@ -65,10 +70,15 @@ export class TeamCard extends HTMLElement {
                     background: #e1e1e1;
                     color: 4d4a4a;
                 }
+                
+                .leader {
+                    border: 2px solid gold;
+                    background: black;
+                }
             
             </style>
-
-            <div class="card" id="${this.teamId}">
+            
+            <div class="card ${leader}" id="${this.teamId}">
                 
                 <h2>Name: ${this.name}</h2>
                 <p>Group: ${this.group}</p>

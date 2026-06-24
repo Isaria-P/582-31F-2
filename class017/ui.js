@@ -11,10 +11,13 @@ export function renderTeams(teams, container) {
         teamCard.setAttribute("points", team.points);
         teamCard.setAttribute("played", team.played);
         teamCard.setAttribute("goal-difference", team.goalDifference);
-
+        if (team.points >= 5) {
+            teamCard.setAttribute("leader", "true");
+        }
         teamCard.addEventListener("click", () => {
             renderDetails(team, detailsContainer);
         })
+        
         container.appendChild(teamCard);
     })
 }
