@@ -9,6 +9,18 @@ export class TeamCard extends HTMLElement {
     }
     connectedCallback() {
         this.render();
+
+        const detailsBtn = this.shadowRoot.querySelector(".details")
+        detailsBtn.addEventListener("click", () => {
+            this.dispatchEvent(
+                new CustomEvent("show-details", {
+                    bubbles: true, composed: true, detail:{
+                        id: this.teamId
+                    }
+                })
+            )
+            
+        })
     }
 
     get teamId() {
@@ -58,13 +70,13 @@ export class TeamCard extends HTMLElement {
             
             </style>
 
-            <div class="card" id="${this.getId}">
+            <div class="card" id="${this.teamId}">
                 
-                <h2>${this.name}</h2>
-                <p>${this.getGroup}</p>
-                <p>${this.getPoints}</p>
-                <p>${this.getPlayed}</p>
-                <p>${this.getGoalDifference}</p>
+                <h2>Name: ${this.name}</h2>
+                <p>Group: ${this.group}</p>
+                <p>Points: ${this.points}</p>
+                <p>Played: ${this.played}</p>
+                <p>Goal Difference: ${this.goalDifference}</p>
                 <button class="details">View Details</button>
             </div>
         `;
