@@ -12,7 +12,8 @@ const detailsContainer = document.getElementById("details-container");
 
 clearBtn.addEventListener("click", (event) =>{
     status.textContent = "Click the button to load teams.";
-
+    detailsContainer.innerHTML = "";
+    teamsContainer.innerHTML = "";
 })
 
 
