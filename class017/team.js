@@ -1,5 +1,6 @@
 export class Team {
     constructor(id, name, group, points, played, goalDifference) {
+       
         this.id = id;
         this.name = name;
         this.group = group;

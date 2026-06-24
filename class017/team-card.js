@@ -1,7 +1,5 @@
 import { Team } from "./team.js"
 
-// console.log(Team)
-
 export class TeamCard extends HTMLElement {
     constructor() {
         super();

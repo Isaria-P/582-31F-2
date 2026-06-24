@@ -1,6 +1,5 @@
 import { Team } from "./team.js";
-
-import { TeamCard } from "./team-card.js";
+import "./team-card.js";
 import { renderTeams } from "./ui.js";
 import { fetchTeams } from "./api.js"
 
@@ -10,19 +9,18 @@ const status = document.getElementById("status")
 const teamsContainer = document.getElementById("teams-container");
 const detailsContainer = document.getElementById("details-container");
 
-clearBtn.addEventListener("click", (event) =>{
-    status.textContent = "Click the button to load teams.";
+clearBtn.addEventListener("click", clearTeams);
+
+function clearTeams() {
+    status.textContent = "No teams loaded.";
     detailsContainer.innerHTML = "";
     teamsContainer.innerHTML = "";
-})
+}
 
-
-loadBtn.addEventListener("click", async (e) => {
-    console.log(e)
-    console.log(status)
+loadBtn.addEventListener("click", async () => {
 
     status.textContent = "Loading....";
-        /// try catch  working
+    detailsContainer.innerHTML = "";
         try {
             
             const rawTeams = await fetchTeams();
@@ -35,19 +33,9 @@ loadBtn.addEventListener("click", async (e) => {
             status.textContent = `${teams.length} teams loaded`;
             console.log(teams)
         } catch (error) {
-            status.textContent = "Fail to load teams";
-            console.log(error)
+            status.textContent = `Fail to load teams| Error: ${error.message}`;
+            console.error(error)
         }
    
 })
 
-// console.log( status, clearBtn, loadBtn)
-/**
- * 
-This file should connect:
-
-the page buttons
-the fetch logic
-the Team class
-the UI rendering
- */
