@@ -35,5 +35,3 @@ export class Artist {
     }
 }
 
-const bey = new Artist(444, "Beyonce", "RNB", "Left", "10pm", "France", true);
-console.log(bey.headliner)
