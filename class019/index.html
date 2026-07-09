@@ -6,26 +6,34 @@
     <title>Festival Lineup Guide</title>
 </head>
 <body>
-    <h1>Title</h1>
-    <p>Short Intro</p>
-    <button class="lineup">Load Lineup</button>
-    <button class="clear">Clear Lineup</button>
-    <p class="status">Status Message</p>
-
-    <div id="message">Message Area</div>
-    
-    <template id="artist-template">
-        <article class="artist-card">
-            <h3 class="artist-name">Artist Name</h3>
-            <p class="artist-genre">Artist Genre</p>
-            <p class="artist-stage">Artist Stage</p>
-            <p class="artist-time">Artist Time</p>
-            <p class="artist-Country">Artist country</p>
-            <p class="artist-headliner">Artist Headliner</p>
-        </article>
-    </template>
-    <div class="lineup">LineUp container</div>
-    <p class="details">Details Panel</p>
+    <main>
+        <section>
+            <h1>Title</h1>
+            <p>Short Intro</p>
+            <button class="lineup">Load Lineup</button>
+            <button class="clear">Clear Lineup</button>
+            <p class="status">Status Message</p>
+            <div id="message">Message Area</div>
+            <hr>
+        </section>
+        
+        <template id="artist-template">
+            <article class="artist-card">
+                <h3 class="artist-name">Artist Name</h3>
+                <p class="artist-genre">Artist Genre</p>
+                <p class="artist-stage">Artist Stage</p>
+                <p class="artist-time">Artist Time</p>
+                <p class="artist-Country">Artist country</p>
+                <p class="artist-headliner">Artist Headliner</p>
+            </article>
+        </template>
+        <section>
+            <hr>
+            <div class="lineup">LineUp container</div>
+            <p class="details">Details Panel</p>
+        </section>
+    </main>
+    <script type="module" src="artist.js"></script>
 </body>
 </html>
 
