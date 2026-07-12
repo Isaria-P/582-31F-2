@@ -18,22 +18,36 @@
         </section>
         
         <template id="artist-template">
+            <style>
+                .artist-card{
+                    border: 1px solid black;
+                    padding: 1rem;
+                    border-radius: 4px;
+                    margin: 1rem;
+                    background-color: slategray;
+                }
+                button{
+                    margin-top: 5px;
+                }
+            </style>
             <article class="artist-card">
                 <h3 class="artist-name">Artist Name</h3>
                 <p class="artist-genre">Artist Genre</p>
                 <p class="artist-stage">Artist Stage</p>
                 <p class="artist-time">Artist Time</p>
-                <p class="artist-Country">Artist country</p>
+                <p class="artist-country">Artist country</p>
                 <p class="artist-headliner">Artist Headliner</p>
+                <button class="detail">View Details</button>
             </article>
         </template>
+        <!-- <artist-card></artist-card> -->
         <section>
             <hr>
             <div class="lineup">LineUp container</div>
             <p class="details">Details Panel</p>
         </section>
     </main>
-    <script type="module" src="artist.js"></script>
+    <script type="module" src="artist-card.js"></script>
 </body>
 </html>
 
@@ -44,4 +58,14 @@
         <p class="team-points">Points</p>
       </article>
     </template>
+    Requirements
+Your custom element must:
+
+extend HTMLElement
+use attachShadow({ mode: "open" })
+clone the template
+fill the template with artist data
+append the clone into the shadow root
+include a View Details button
+dispatch a custom event when clicked
      -->
