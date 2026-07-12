@@ -43,14 +43,17 @@ export class ArtistCard extends HTMLElement {
         const clone = template.content.cloneNode(true);
 
         this.shadowRoot.innerHTML = "";
-        this.shadowRoot.appendChild(clone)
+        this.dispatchEvent(new CustomEvent("show-selected", {bubbles: true, composed: true,
+            detail:{id:this.artistId}
+        }))
 
-        clone.querySelector(".artist-name").textContent = this.artistName;
-        clone.querySelector(".artist-genre").textContent = this.artistGenre;
-        clone.querySelector(".artist-time").textContent = this.artistTime;
-        clone.querySelector(".artist-stage").textContent = this.artistStage;
-        clone.querySelector(".artist-country").textContent = this.artistCountry;
-        clone.querySelector(".artist-headliner").textContent = this.artistHeadliner;
+        clone.querySelector(".artist-name").textContent = `-${this.artistName}-`;
+        clone.querySelector(".artist-genre").textContent = `Artist Genre: ${this.artistGenre}`;
+        clone.querySelector(".artist-time").textContent = `Artist Time: ${this.artistTime}`;
+        clone.querySelector(".artist-stage").textContent = `Artist Stage: ${this.artistStage}`;
+        clone.querySelector(".artist-country").textContent = `Artist Country: ${this.artistCountry}`;
+        clone.querySelector(".artist-headliner").textContent = `Headline: ${this.artistHeadliner}`;
+        this.shadowRoot.appendChild(clone);
     }
 }
 customElements.define("artist-card", ArtistCard);

@@ -1,5 +1,5 @@
 export function renderArtists(artists, container) {
-    const lineupContainer = document.getElementByClass("lineup");
+    // const lineupContainer = document.querySelector(".lineup-container");
     // console.log(lineupContainer)
     container.innerHTML = "";
     artists.forEach(artist => {
@@ -7,11 +7,12 @@ export function renderArtists(artists, container) {
         artistCard.setAttribute("id", artist.id);
         artistCard.setAttribute("name", artist.name);
         artistCard.setAttribute("genre", artist.genre);
-        artistCard.setAttribute("points", artist.points);
         artistCard.setAttribute("time", artist.time);
         artistCard.setAttribute("stage", artist.stage);
         artistCard.setAttribute("country", artist.country);
         artistCard.setAttribute("headliner", artist.headliner);
+        
+        console.log("yyyyy");
         
         container.appendChild(artistCard)
     })
