@@ -19,37 +19,50 @@
         
         <template id="artist-template">
             <style>
+                
                 .artist-card{
                     border: 1px solid black;
-                    padding: 2rem;
+                    padding: 1rem;
                     border-radius: 4px;
                     margin: 1rem;
                     background-color: slategray;
                     color: black;
+                    text-align: center;
                 }
-                button{
-                    margin-top: 5px;
+                .details{
+                    border: 1px solid grey;
+                    padding: 1rem;
+                    border-radius: 2px;
+                    margin: 1rem;
+                    background-color: gray;
+                    color: black;
                 }
+                
                 .headliner {
                     color: white;
-                    border: 4px dashed white;
-                    background-color: slategray;
+                    border: 4px double hotpink;
+                }
+                button {
+                    margin: 0 45px;
+                    line-height: 50px;      
+                    text-align: center;     
+                    border: 1px dotted slategray;
+                    text-decoration: none;
                 }
             </style>
-            <article class="artist-card">
-                <h3 class="artist-name">Artist Name</h3>
-                <p class="artist-genre">Artist Genre</p>
-                <p class="artist-stage">Artist Stage</p>
-                <p class="artist-time">Artist Time</p>
-                <p class="artist-country">Artist country</p>
-                <p class="artist-headliner">Artist Headliner</p>
-                <button class="detail">View Details</button>
-            </article>
+                <article class="artist-card">
+                    <h3 class="artist-name">Artist Name</h3>
+                    <p class="artist-genre">Artist Genre</p>
+                    <p class="artist-stage">Artist Stage</p>
+                    <p class="artist-time">Artist Time</p>
+                    <p class="artist-country">Artist country</p>
+                    <p class="artist-headliner">Artist Headliner</p>
+                    <button class="detail">View Details</button>
+                </article>
         </template>
-        <!-- <artist-card></artist-card> -->
         <section>
             <hr>
-            <div class="lineup-container">LineUp container</div>
+            <div class="lineup-container"></div>
             <p class="details">Details Panel</p>
         </section>
     </main>
