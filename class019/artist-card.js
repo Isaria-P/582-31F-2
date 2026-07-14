@@ -6,10 +6,10 @@ export class ArtistCard extends HTMLElement {
     }
     connectedCallback(){
         this.render();
-        const detailsBtn = this.shadowRoot.querySelector(".details");
+        const detailsBtn = this.shadowRoot.querySelector(".detail");
         detailsBtn.addEventListener("click", () => {
             this.dispatchEvent(
-                new CustomEvent("show-details", {
+                new CustomEvent("artist-selected", {
                     bubbles: true, composed: true, detail: { id: this.artistId}
                 })
             )
@@ -17,7 +17,7 @@ export class ArtistCard extends HTMLElement {
     }
     
     get artistId() {
-        return this.getAttribute("id");
+        return this.getAttribute("artist-id");
     }
     get artistName() {
         return this.getAttribute("name");
@@ -37,15 +37,17 @@ export class ArtistCard extends HTMLElement {
     get artistHeadliner() {
         return this.getAttribute("headliner");
     }
-    
     render(){
         const template = document.getElementById("artist-template");
         const clone = template.content.cloneNode(true);
+        const headlinerClass = this.artistHeadliner === "true" ? "headliner" : "";
+
+        const card = clone.querySelector(".artist-card");
+        if (headlinerClass){
+            card.classList.add(headlinerClass);
+        }
 
         this.shadowRoot.innerHTML = "";
-        this.dispatchEvent(new CustomEvent("show-selected", {bubbles: true, composed: true,
-            detail:{id:this.artistId}
-        }))
 
         clone.querySelector(".artist-name").textContent = `-${this.artistName}-`;
         clone.querySelector(".artist-genre").textContent = `Artist Genre: ${this.artistGenre}`;

@@ -8,7 +8,9 @@ export class Artist {
         this.country = country;
         this. headliner = headliner;
     }
-
+    get artistId(){
+        return rhis.getAttribute("artist-id");
+    }
     get summary() {
         return `${this.name}-${this.genre}-${this.stage}`
     }
@@ -21,6 +23,9 @@ export class Artist {
     }
     get headliner() {
         return this._headliner;
+    }
+    get artistHeadliner() {
+        return this.getAttribute("headliner")
     }
     static fromObject(data) {
         return new Artist(

@@ -4,7 +4,7 @@ export function renderArtists(artists, container) {
     container.innerHTML = "";
     artists.forEach(artist => {
         const artistCard = document.createElement("artist-card");
-        artistCard.setAttribute("id", artist.id);
+        artistCard.setAttribute("artist-id", artist.id);
         artistCard.setAttribute("name", artist.name);
         artistCard.setAttribute("genre", artist.genre);
         artistCard.setAttribute("time", artist.time);
@@ -12,7 +12,6 @@ export function renderArtists(artists, container) {
         artistCard.setAttribute("country", artist.country);
         artistCard.setAttribute("headliner", artist.headliner);
         
-        console.log("yyyyy");
         
         container.appendChild(artistCard)
     })
