@@ -37,9 +37,9 @@ export function renderPerformances(performance) {
   }
 
   performance.forEach((item) => {
-    const card = document.createElement("performance");
+    const card = document.createElement("performance-card");
 
-    card.data = item;
+    card.performance = item;
 
     performanceContainer.appendChild(card);
   });

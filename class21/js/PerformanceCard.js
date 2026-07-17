@@ -1,4 +1,4 @@
-export class PerformanceCard {
+export class PerformanceCard extends HTMLElement {
     constructor() {
         super();
 
@@ -9,29 +9,28 @@ export class PerformanceCard {
                 mode: "open"
             });
 
-
         const template =
             document.getElementById(
                 "performance-template"
             );
 
         shadow.appendChild(
-            template.cloneNode()
+            template.content.cloneNode(true)
         );
     }
 
     set performance(value) {
-        this.performance = value;
-        this.render;
+        this._performance = value;
+        this.render();
     }
 
     get performance() {
-        return this.performance;
+        return this._performance;
     }
 
     render() {
         const article =
-            document.querySelector(
+            this.shadowRoot.querySelector(
                 ".performance-card"
             );
 
@@ -82,7 +81,7 @@ export class PerformanceCard {
             .querySelector(".time")
             .textContent =
                 `Time: ${
-                    this.performance.stage
+                    this.performance.stage()
                 }`;
 
         this.shadowRoot
@@ -102,11 +101,11 @@ export class PerformanceCard {
                 ".lineup-label"
             )
             .textContent =
-                this.performance.lineupLabel;
+                this.performance.lineupLabel();
     }
 }
 
 customElements.define(
-    "performance",
-    PerformanceCard()
+    "performance-card",
+    PerformanceCard
 );
