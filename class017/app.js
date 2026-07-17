@@ -31,7 +31,7 @@ loadBtn.addEventListener("click", async () => {
             renderTeams(teams, teamsContainer);
             
             status.textContent = `${teams.length} teams loaded`;
-            console.log(teams)
+            // console.log(teams)
         } catch (error) {
             status.textContent = `Fail to load teams| Error: ${error.message}`;
             console.error(error)

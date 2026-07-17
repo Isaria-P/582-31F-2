@@ -26,7 +26,7 @@ export function renderTournamentList(tournaments, container) {
         container.appendChild(col);
     });
 }
-
+// continue here  when done move up to tournaments.js then up from there
 export function renderSummary(tournament, summaryRow) {
 
     summaryRow.innerHTML = `

@@ -122,7 +122,7 @@ class Bug {
   }
 }
 
-bug = new Bug("hi"); // throws an error if there are no setters
+const bug = new Bug("hi"); // throws an error if there are no setters
 console.log(bug.name);
 
 /**
@@ -145,7 +145,7 @@ class MathHelper {
   }
 }
 
-result = MathHelper.add(2, 3);
+const result = MathHelper.add(2, 3);
 console.log(result);
 
 //                      ::::PAY ATTENTION:::::
@@ -191,7 +191,8 @@ class Product2 {
   }
 }
 
-new_product = new Product2("Mouse", 25);
+const new_product = new Product2("Mouse", 25);
 // new_product2 = new Product2("Laptop", -25);
 
 console.log(new_product.price);
+console.log(Product2.isValidPrice)
