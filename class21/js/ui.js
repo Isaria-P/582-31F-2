@@ -1,6 +1,6 @@
 import { Performance } from "./Performance.js";
 
-const performanceContainer = document.getElementById("performance-card-template");
+const performanceContainer = document.getElementById("performance-list");
 
 const statusOutput = document.getElementById("status");
 

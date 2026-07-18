@@ -1,13 +1,13 @@
 export class Artist {
   constructor(id, name, country, genre) {
     this.id = id;
-    this.artistName = name;
+    this.name = name;
     this.country = country;
     this.genre = genre;
   }
 
   get displayLabel() {
-    return `${this.artistName} — ` + `${this.genre}`;
+    return `${this.name} — ` + `${this.genre}`;
   }
 
   static fromObject(data) {

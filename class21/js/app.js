@@ -32,23 +32,19 @@ async function loadLineup() {
 
   loadButton.disabled = true;
 
-  const data = await getFestivalData();
-
   try {
     
     const data = await getFestivalData();
-    console.table(data)
 
     const artists = data.artists.map(
       (item) => new Artist(item.id, item.name, item.country, item.genre),
     );
 
-    console.table(artists)
-
     performances = data.performances.map((item) => {
-      const artist = artists.filter((artist) => artist.id === item.artistId);
-
-      if (item.featuredFilter) {
+      const artist = artists.find((artist) => artist.id === item.artistId);
+      console.log("artistId:", item.artistId);
+      console.log("artist:", artist);
+      if (item.featured) {
         return new FeaturedPerformance(
           item.id,
           item.title,
@@ -60,18 +56,28 @@ async function loadLineup() {
           item.featured,
         );
       }
-      return new Performance(
-        item.id,
-        item.title,
-        artist,
-        item.stage,
-        item.time,
-        item.ticketPrice,
-        item.ticketsRemaining,
-      );
+        return new Performance(
+          item.id,
+          item.title,
+          artist,
+          item.stage,
+          item.time,
+          item.ticketPrice,
+          item.ticketsRemaining,
+        );
+      
     });
 
+    console.log("FINAL PERFORMANCES:", performances);
+
+    performances.forEach(performance => {
+        console.log(
+            performance.title,
+            performance.artist
+        );
+    });
     renderPerformances(performances);
+    // console.log(performances)
 
     searchInput.disabled = false;
     stageFilter.disabled = false;

@@ -1,17 +1,16 @@
 export class Performance {
-  constructor(id, title, artistId, stage, time, ticketPrice, ticketsRemaining) {
+  constructor(id, title, artist, stage, time, ticketPrice, ticketsRemaining) {
     this.id = id;
-    this.name = title;
-    this.artist = artistId;
+    this.title = title;
+    this.artist = artist;
     this.stage = stage;
     this.time = time;
-    this.ticketPrice = String(ticketPrice);
-    this.ticketsRemaining = String(ticketsRemaining);
-    this.featured = false;
+    this.ticketPrice = Number(ticketPrice);
+    this.ticketsRemaining = Number(ticketsRemaining);
   }
 
   get formattedPrice() {
-    return `$${this.ticketPrice.toFixed}`;
+    return `$${this.ticketPrice}`;
   }
 
   get hasTickets() {
@@ -19,22 +18,19 @@ export class Performance {
   }
 
   get ticketLabel() {
-    if (this.hasTickets) {
+    if (this.ticketsRemaining <= 0) {
       return "Sold out";
     }
 
-    return `${this.ticketsRemaining} ` + `tickets remaining`;
+    return `${this.ticketsRemaining} tickets remaining`;
   }
 
   get lineupLabel() {
-    return "Featured performance";
+    return "";
   }
 
   static totalAvailableTickets(performances) {
-    // return performances.reduce(
-    //   (sum, performance) => sum + performance.hasTickets,
-    //   0,
-    // );
+    
     let availableTickets = 0;
     for (const performance of performances) {
       if (performance.hasTickets) {
@@ -66,7 +62,11 @@ export class Performance {
       data.time,
       data.ticketPrice,
       data.ticketsRemaining,
-      data.featured,
     )
   }
 }
+
+
+// // const p = new Performance(83, "LALA", 6689, "Main", "6:30", "$67", 77 )
+// const fp = new FeaturedPerformance(99, "WOW", 88, "Main", "3:30", "$5.50", 2, "LEFT")
+// console.log(fp)

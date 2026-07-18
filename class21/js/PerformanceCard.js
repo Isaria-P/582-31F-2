@@ -11,9 +11,9 @@ export class PerformanceCard extends HTMLElement {
 
         const template =
             document.getElementById(
-                "performance-template"
+                "performance-card-template"
             );
-
+            
         shadow.appendChild(
             template.content.cloneNode(true)
         );
@@ -29,12 +29,14 @@ export class PerformanceCard extends HTMLElement {
     }
 
     render() {
+        console.log(this.performance.artist)
+        // if (!this._performance) return "nooooo"
         const article =
             this.shadowRoot.querySelector(
                 ".performance-card"
             );
 
-        article.className =
+            article.className =
             "performance-card";
 
         if (this.performance.featured) {
@@ -58,8 +60,8 @@ export class PerformanceCard extends HTMLElement {
             .querySelector(".artist")
             .textContent =
                 this.performance
-                    .artist.displayLabel();
-
+                    .artist.displayLabel;
+        
         this.shadowRoot
             .querySelector(".country")
             .textContent =
@@ -74,34 +76,34 @@ export class PerformanceCard extends HTMLElement {
             .querySelector(".stage")
             .textContent =
                 `Stage: ${
-                    this.performance.time
+                    this.performance.stage
                 }`;
 
         this.shadowRoot
             .querySelector(".time")
             .textContent =
                 `Time: ${
-                    this.performance.stage()
+                    this.performance.time
                 }`;
 
         this.shadowRoot
             .querySelector(".price")
             .textContent =
                 this.performance
-                    .formattedPrice();
+                    .formattedPrice;
 
         this.shadowRoot
             .querySelector(".tickets")
             .textContent =
                 this.performance
-                    .ticketLabel();
+                    .ticketLabel;
 
         this.shadowRoot
             .querySelector(
                 ".lineup-label"
             )
             .textContent =
-                this.performance.lineupLabel();
+                this.performance.lineupLabel;
     }
 }
 

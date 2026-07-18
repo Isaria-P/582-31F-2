@@ -9,16 +9,10 @@ export class FeaturedPerformance extends Performance{
         time,
         ticketPrice,
         ticketsRemaining,
-        featured
+        featured        
     ) {
         super(
-            title,
-            id,
-            stage,
-            artist,
-            ticketPrice,
-            ticketsRemaining,
-            time
+            featured
         );
 
         this.featured = Boolean(featured);
@@ -27,4 +21,18 @@ export class FeaturedPerformance extends Performance{
     get lineupLabel() {
         return "Featured Performance";
     }
+    static fromObject(data) {
+    if (data.featured) {
+      return new FeaturedPerformance(
+      data.id,
+      data.title,
+      data.artist,
+      data.stage,
+      data.time,
+      data.ticketPrice,
+      data.ticketsRemaining,
+      data.featured,
+      )
+    }
+  }
 }
