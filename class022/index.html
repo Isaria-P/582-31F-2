@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>Music Events Dashboard</title>
+</head>
+
+<body>
+   <main>
+    <h3>current Location</h3>
+    <p id="status">Click the button to load current location</p>
+    <button id="load-btn">Load Wheather</button>
+    <button id="clear-btn">Clear</button>
+
+    <section>
+        <h4>Current Location</h4>
+        <current-weather
+        latitude="45.49902"
+        longitude="-73.59793"
+    ></current-weather>
+        
+    </section>
+   </main>   
+   <script type="module" src="api.js"></script>
+</body>
+</html>
