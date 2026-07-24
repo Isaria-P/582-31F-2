@@ -2,25 +2,23 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<title>Music Events Dashboard</title>
+<title>LIA weather data using Open-Meteo's free API</title>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
    <main>
-    <h3>current Location</h3>
-    <p id="status">Click the button to load current location</p>
-    <button id="load-btn">Load Wheather</button>
-    <button id="clear-btn">Clear</button>
 
     <section>
-        <h4>Here is your Temperature based on your Curent location below </h4>
-        <current-weather></current-weather>
-        <div id="current-location-continer"></div>
+        <h3>Current Weather</h3>
+        <p id="status">loading current location</p>   
     </section>
+    <current-weather></current-weather>
    </main>   
+
    <script type="module" src="app.js"></script>
+
 </body>
 </html>

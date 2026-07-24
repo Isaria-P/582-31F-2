@@ -1,0 +1,20 @@
+body {
+    /* padding: 50px; */
+    margin: 2rem; 
+    padding: 1rem;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+h3 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #4d4a4a;
+    
+}
+
+#status {
+    color: #4b526a;
+}
