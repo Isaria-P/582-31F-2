@@ -1,4 +1,4 @@
-import { fetchLocation } from "./api.js";
+import { getCurrentTemperature } from "./api.js";
 import { renderWeather } from "./ui.js";
 import "./weather-card.js"
 
@@ -7,7 +7,7 @@ const clearBtn = document.getElementById("clear-btn")
 const locationContainer = document.getElementById("current-location-continer")
 const loadBtn = document.getElementById("load-btn");
 
-console.log(loadBtn)
+console.log(navigator.geolocation)
 
 function clearWeather() {
     status.textContent = "Clear whearther info by clear Button"

@@ -1,10 +1,14 @@
-export async function fetchLocation() {
-    const response = await fetch("https://api.open-meteo.com/v1/forecast?latitude=45.5088&longitude=-73.5878&current_weather=true");
+const BASE_URL = "https://api.open-meteo.com/v1/forecast";
+
+export async function getCurrentTemperature(latitude, longitude) {
+    const url = `${BASE_URL}?latitude=${latitude}&longitude=${longitude}&current_weather=true`
+    const response = await fetch(url);
 
     if (!response.ok) {
         throw new error(`
-            unable to locate coordinates Event: HTTP status: ${response.status}
+            unable to fetch weather & coordinates.
             `)
     }
-    return response.json();
+    const data = await response.json();
+    return data;
 }

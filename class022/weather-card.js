@@ -15,19 +15,18 @@ export class weatherCard extends HTMLElement {
     }
     render() {
         
-        
         this.shadowRoot.innerHTML =`
             <style>
                 .card{
-                    border: 1px solid #solid #333;
+                    border: 1px solid #solid #4b526a;
                     magin: 1rem;
                     padding: 1rem;
                 }
             </style>
             <div class="card">
-                <h3>Latitude: ${this.latitude}</h3>
-                <h3>Latitude: ${this.longitude}</h3>
-                <p>temperature: ${this.temperature}</p>
+                <p>Latitude: ${this.latitude}</p>
+                <p>Latitude: ${this.longitude}</p>
+                <p>Current temperature: ${this.temperature}</p>
             </div>
         `
     }
